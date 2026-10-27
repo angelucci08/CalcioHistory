@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcio History - Inicio</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+    <header>
+        <nav>
+           <h1 class="logo-title"><span class="calcio-text">Calcio</span> <span class="history-text">History</span></h1>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="contacto.html">Contacto & BD</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <section class="parallax-section">
+       <div class="parallax-content">
+          <h2>La <span class="history-elegante">HISTORIA</span> del Fútbol Europeo</h2>
+          <p>Explora los momentos inolvidables de los clubes más grandes de la historia.</p>
+        </div>
+    </section>
+
+    <p id="welcome-msg" style="text-align: center; font-weight: bold; color: #000000; margin: 15px 0;"></p>
+
+
+    <main class="container">
+        <h2>Selecciona un Club</h2>
+        <div class="clubs-grid">
+            <a href="madrid.html?equipo=madrid" class="club-card">
+                <img src="img/madrid.png" alt="Real Madrid">
+                <span>Real Madrid</span>
+            </a>
+            <a href="chelsea.html?equipo=chelsea" class="club-card">
+                <img src="img/chelsea.png" alt="Chelsea">
+                <span>Chelsea</span>
+            </a>
+            <a href="lyon.html?equipo=lyon" class="club-card">
+                <img src="img/lyon.png" alt="Lyon">
+                <span>Lyon</span>
+            </a>
+            <a href="milan.html?equipo=milan" class="club-card">
+                <img src="img/milan.png" alt="Milán">
+                <span>Milán</span>
+            </a>
+            <a href="ajax.html?equipo=ajax" class="club-card">
+                <img src="img/ajax.png" alt="Ajax">
+                <span>Ajax</span>
+            </a>
+        </div>
+    </main>
+
+    <!-- Sección de Objetivo de la Página -->
+    <section class="about-project">
+        <div class="about-content">
+            <h3>Sobre Calcio History</h3>
+            <p>Este sitio web ha sido diseñado con el objetivo de recopilar, preservar y difundir la rica historia, los momentos inolvidables y las leyendas de los clubes más prestigiosos del fútbol europeo. A través de una interfaz interactiva y moderna, buscamos ofrecer a los fanáticos del balompié un espacio de consulta único y apasionante.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>Desarrollado por Angel Graterol
+        </p>
+    </footer>
+
+    <!-- Script de LocalStorage -->
+    <script>
+        // Guardar el club favorito en LocalStorage cuando el usuario hace clic
+        document.querySelectorAll('.club-card').forEach(card => {
+            card.addEventListener('click', (e) => {
+                const clubName = card.querySelector('span').textContent;
+                localStorage.setItem('favoritoCalcio', clubName);
+            });
+        });
+
+        // Mostrar el club favorito guardado al cargar la página
+        window.addEventListener('DOMContentLoaded', () => {
+            const favorito = localStorage.getItem('favoritoCalcio');
+            const msgElement = document.getElementById('welcome-msg');
+            if (favorito && msgElement) {
+                msgElement.textContent = `⭐ Tu club favorito guardado en sesión: ${favorito}`;
+            }
+        });
+    </script>
+
+
+</body>
+</html>
